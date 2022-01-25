@@ -5,8 +5,8 @@ import { Container } from "react-bootstrap";
 function App() {
   return (
     <>
-      <main>
-        <Header />
+      <Header />
+      <main className="py-3">
         <Container>
           <h1>Welcome to My shop</h1>
         </Container>
