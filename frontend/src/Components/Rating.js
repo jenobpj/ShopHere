@@ -1,8 +1,9 @@
 import React from "react";
 
-const Rating = ({ value, text }) => {
+const Rating = ({ value, text, starcolor = "#f8e825" }) => {
   const stars = [1, 2, 3, 4, 5].map((index) => (
     <i
+      style={{ color: starcolor }}
       key={index}
       className={
         value >= index
@@ -16,7 +17,7 @@ const Rating = ({ value, text }) => {
 
   return (
     <div className="rating">
-      <span>{stars}</span> <span>{text}</span>
+      <span>{stars}</span> <span>{text && text}</span>
     </div>
   );
 };
