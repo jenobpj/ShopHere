@@ -11,7 +11,6 @@ const Homescreen = () => {
       setProducts(data);
     };
     fetchProducts();
-    console.log(products);
   }, []);
   return (
     <>

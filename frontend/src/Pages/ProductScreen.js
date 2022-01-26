@@ -13,7 +13,7 @@ const Productscreen = () => {
       setProduct(data);
     };
     fetchProduct();
-  }, []);
+  }, [id]);
 
   return (
     <>
