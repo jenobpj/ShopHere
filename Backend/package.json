@@ -13,7 +13,8 @@
   "dependencies": {
     "dotenv": "^14.3.2",
     "env": "^0.0.2",
-    "express": "^4.17.2"
+    "express": "^4.17.2",
+    "mongoose": "^6.1.8"
   },
   "devDependencies": {
     "concurrently": "^7.0.0",
