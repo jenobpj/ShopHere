@@ -9,9 +9,10 @@ const Productscreen = () => {
   const [product, setProduct] = useState([]);
   useEffect(() => {
     const fetchProduct = async () => {
-      const { data } = await axios(`/products/${id}`);
+      const { data } = await axios.get(`/api/products/${id}`);
       setProduct(data);
     };
+    console.log(product);
     fetchProduct();
   }, [id]);
 
