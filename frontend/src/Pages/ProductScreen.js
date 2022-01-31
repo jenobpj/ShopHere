@@ -12,12 +12,13 @@ import {
 import Rating from "../Components/Rating";
 import { useDispatch, useSelector } from "react-redux";
 import { listProductDetails } from "../actions/productActions";
-import { useNavigate } from "react-router-dom";
+import { productDetailsReducer } from "../reducers/productReducers";
 import Loader from "../Components/Loader";
 import Message from "../Components/Message";
+import { useNavigate } from "react-router-dom";
 
 const Productscreen = () => {
-  const [qty, setQty] = useState(0);
+  const [qty, setQty] = useState(1);
   const { id } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -28,7 +29,7 @@ const Productscreen = () => {
     dispatch(listProductDetails(id));
   }, [id]);
   const addToCartHandler = () => {
-    navigate(`/cart/${id}/?qty=${qty}`);
+    navigate(`/cart/${id}?qty=${qty}`);
   };
 
   return (
