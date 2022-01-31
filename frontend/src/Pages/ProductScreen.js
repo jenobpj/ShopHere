@@ -12,12 +12,14 @@ import {
 import Rating from "../Components/Rating";
 import { useDispatch, useSelector } from "react-redux";
 import { listProductDetails } from "../actions/productActions";
+import { useNavigate } from "react-router-dom";
 import Loader from "../Components/Loader";
 import Message from "../Components/Message";
 
 const Productscreen = () => {
   const [qty, setQty] = useState(0);
   const { id } = useParams();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const productDetails = useSelector((state) => state.productDetails);
   const { product, loading, error } = productDetails;
@@ -25,6 +27,9 @@ const Productscreen = () => {
   useEffect(() => {
     dispatch(listProductDetails(id));
   }, [id]);
+  const addToCartHandler = () => {
+    navigate(`/cart/${id}/?qty=${qty}`);
+  };
 
   return (
     <>
@@ -100,6 +105,7 @@ const Productscreen = () => {
                 )}
                 <ListGroup.Item>
                   <Button
+                    onClick={addToCartHandler}
                     className="btn-block"
                     type="button"
                     disabled={product.countInStock === 0}
