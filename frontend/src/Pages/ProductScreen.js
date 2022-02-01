@@ -86,9 +86,9 @@ const Productscreen = () => {
                 </ListGroup.Item>
                 {product.countInStock > 0 && (
                   <ListGroup.Item>
-                    <Row>
-                      <Col>Qty</Col>
-                      <Col>
+                    <Col>
+                      <Row>Qty</Row>
+                      <Row>
                         <Form.Control
                           as="select"
                           value={qty}
@@ -100,8 +100,8 @@ const Productscreen = () => {
                             </option>
                           ))}
                         </Form.Control>
-                      </Col>
-                    </Row>
+                      </Row>
+                    </Col>
                   </ListGroup.Item>
                 )}
                 <ListGroup.Item>
