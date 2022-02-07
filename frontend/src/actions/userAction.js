@@ -2,6 +2,7 @@ import axios from "axios";
 import {
   USER_DETAILS_FAIL,
   USER_DETAILS_REQUEST,
+  USER_DETAILS_SUCCESS,
   USER_LOGIN_FAIL,
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
@@ -91,13 +92,16 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
 
     const config = {
       headers: {
-        "Content-Type": "application/json",
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
 
     const { data } = await axios.get(`/api/users/${id}`, config); //this request send with token and token will verify in protect middlewate at backend
-    dispatch({ type: USER_REGISTER_SUCCESS, payload: data });
+    console.log(data);
+
+    dispatch({ type: USER_DETAILS_SUCCESS, payload: data });
+    const { userDetails } = getState();
+    console.log(userDetails);
   } catch (error) {
     dispatch({
       type: USER_DETAILS_FAIL,
