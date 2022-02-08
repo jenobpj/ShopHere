@@ -24,12 +24,17 @@ const reducer = combineReducers({
 const cartItemsFromStroage = localStorage.getItem("cartItems")
   ? JSON.parse(localStorage.getItem("cartItems"))
   : [];
+const shippingAddressFromStroage = localStorage.getItem("shippingAddress")
+  ? JSON.parse(localStorage.getItem("cartItems"))
+  : {};
 const userInfoFromStroage = localStorage.getItem("userInfo")
   ? JSON.parse(localStorage.getItem("userInfo"))
   : null;
+
 const initialState = {
   cart: {
     cartItems: cartItemsFromStroage,
+    shippingAddress: shippingAddressFromStroage,
   },
   userLogin: { userInfo: userInfoFromStroage },
 };
