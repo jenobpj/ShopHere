@@ -6,6 +6,7 @@ import Loader from "../Components/Loader";
 import { useNavigate } from "react-router-dom";
 import Formcontainer from "../Components/FormContainer";
 import { saveShippingAddress } from "../actions/cartActions";
+import Checkoutsteps from "../Components/CheckoutSteps";
 
 const Shippingscreen = () => {
   const cart = useSelector((state) => state.cart);
@@ -25,6 +26,7 @@ const Shippingscreen = () => {
   };
   return (
     <Formcontainer>
+      <Checkoutsteps step1 step2 />
       <h1>Shipping</h1>
       <Form onSubmit={submitHandler}>
         <Form.Group controlId="address">
