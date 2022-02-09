@@ -23,6 +23,7 @@ const Cartscreen = () => {
   const [searchParams] = useSearchParams();
   const qty = searchParams.get("qty") ? Number(searchParams.get("qty")) : 1;
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
   useEffect(() => {
@@ -34,7 +35,7 @@ const Cartscreen = () => {
     dispatch(removeFromCart(id));
   };
   const checkoutHandler = () => {
-    console.log("checkout");
+    navigate("/shipping");
   };
   return (
     <Row>
